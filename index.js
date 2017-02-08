@@ -50,6 +50,9 @@ module.exports = (url, size, opts) => {
 	]);
 
 	const stream = base64Stream.decode();
+	stream.on('error', error => {
+		console.log(error)
+	});
 
 	process.stderr.setMaxListeners(0);
 
